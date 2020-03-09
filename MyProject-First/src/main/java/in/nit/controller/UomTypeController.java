@@ -21,7 +21,7 @@ import in.nit.view.UomTypeExcelView;
 import in.nit.view.UomTypePdfView;
 
 @Controller
-@RequestMapping("/uom")
+@RequestMapping({"/uom"})
 public class UomTypeController {
 	@Autowired
 	private IUomTypeService service;

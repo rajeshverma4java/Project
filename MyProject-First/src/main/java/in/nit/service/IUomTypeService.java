@@ -12,6 +12,7 @@ public interface IUomTypeService {
 	public UomType getOneUomType(Integer id);
 	public void updateUomType(UomType ut);
 	public List<Object[]> getUomTypePackingCount();
+	public List<Object[]> getUomIdAndModel();
 
 
 }

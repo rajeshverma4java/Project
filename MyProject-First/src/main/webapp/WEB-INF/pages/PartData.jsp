@@ -23,7 +23,7 @@
 	<div class="container">
 		<div class="card">
 			<div class="card-header bg-primary text-white text-center">
-				<h2>Welcome TO Order Type Data Register</h2>
+				<h2>Welcome TO Part Data Register</h2>
 			</div>
 
 			<div class="card-body">
@@ -37,11 +37,16 @@
 							<tr class="bg-success text-white">
 							<tr>
 									<th>ID</th>
-									<th>MODE</th>
+									<!-- <th>MODE</th> -->
 									<th>CODE</th>
-									<th>METHOD</th>
-									<th>ACCEPT</th>
-									<th>DESCRIPTION</th>
+									<th>WIDTH</th>
+									<th>LENGTHT</th>
+									<th>HEIGHT</th>
+									<th>COST</th>
+									<th>CURRENCY</th>
+									<th>UOM</th>
+									<th>NOTE</th>
+									
 									<th class="text-center" colspan="3">OPTION</th>
 
 							</tr>
@@ -50,16 +55,19 @@
 
 
 								<tr>
-									<td>${ob.orderId}</td>
-									<td>${ob.orderMode}</td>
-									<td>${ob.orderCode}</td>
-									<td>${ob.orderMeth}</td>
-									<td>${ob.orderAccept}</td>
-									<td>${ob.orderDesc}</td>
-									<td><a href="delete?uid=${ob.orderId }"
+									<td>${ob.partId}</td>
+									<td>${ob.code}</td>
+									<td>${ob.width}</td>
+									<td>${ob.length}</td>
+									<td>${ob.height}</td>
+									<td>${ob.baseCost}</td>
+									<td>${ob.baseCurrency}</td>
+									<td>${ob.uom.uomModel}</td>
+									<td>${ob.desc}</td>
+									<td><a href="delete?pid=${ob.partId }"
 										class="btn btn-danger">DELETE</a>
-									<td><a href="edit?uid=${ob.orderId }" class="btn btn-info">Edit</a>
-									<td><a href="view?uid=${ob.orderId }"
+									<td><a href="edit?pid=${ob.partId }" class="btn btn-info">Edit</a>
+									<td><a href="view?pid=${ob.partId }"
 										class="btn btn-warning">View</a>
 								</tr>
 							</c:forEach>

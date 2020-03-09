@@ -29,7 +29,7 @@ public class OrderMethodTypeUtil {
 		//save as image
 		
 		try {
-			ChartUtils.saveChartAsJPEG(new File(path+"resources/images/OrderMethodA.jpg"), chart, 400, 400);
+			ChartUtils.saveChartAsJPEG(new File(path+"/resources/images/OrderMethodA.jpg"), chart, 400, 400);
 			
 		} catch (IOException e) {
 				System.out.println(e.getMessage());
@@ -57,7 +57,7 @@ public class OrderMethodTypeUtil {
 		//save image
 		
 		try {
-			ChartUtils.saveChartAsJPEG(new File(path+"resources/images/OrderMethodB.jpg"), chart, 400, 400);
+			ChartUtils.saveChartAsJPEG(new File(path+"/resources/images/OrderMethodB.jpg"), chart, 400, 400);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

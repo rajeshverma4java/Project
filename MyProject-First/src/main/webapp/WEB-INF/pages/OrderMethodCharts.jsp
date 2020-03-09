@@ -7,8 +7,9 @@
 <title>Charts</title>
 </head>
 <body>
+<%@include file="UserMenu.jsp" %>
 
-<h2>Welcome To OrderMethod Charts</h2>
+<h2>Welcome To Shipment Charts</h2>
 
 <img src="../resources/images/OrderMethodA.jpg"/>
 <img src="../resources/images/OrderMethodB.jpg"/>

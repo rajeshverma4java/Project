@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import in.nit.model.OrderMethodType;
 import in.nit.service.IOrderMethodTypeService;
-import in.nit.util.ShipmentTypeUtil;
+import in.nit.util.OrderMethodTypeUtil;
 import in.nit.view.OrderTypeExcelView;
 import in.nit.view.OrderTypePdfView;
 @Controller
@@ -27,7 +27,7 @@ public class OrderMethodtypeController {
 	@Autowired
 	private ServletContext context;
 	@Autowired
-	private ShipmentTypeUtil util;
+	private OrderMethodTypeUtil util;
 
 	@RequestMapping("/show")
 	public String showShipemntType(@ModelAttribute OrderMethodType orderMethodType) {

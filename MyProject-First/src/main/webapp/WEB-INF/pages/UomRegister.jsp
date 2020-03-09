@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="UserMenu.jsp" %>
 
 <h1>Welcome To UOM Register</h1>
 

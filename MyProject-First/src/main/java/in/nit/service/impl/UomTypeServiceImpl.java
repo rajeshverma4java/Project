@@ -50,4 +50,9 @@ public class UomTypeServiceImpl implements IUomTypeService {
 		// TODO Auto-generated method stub
 		return dao.getUomTypePackingCount();
 	}
+	@Override
+	public List<Object[]> getUomIdAndModel() {
+
+		return dao.getUomIdAndModel();
+	}
 }

@@ -11,11 +11,11 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.web.servlet.view.document.AbstractXlsView;
 
-import in.nit.model.UomType;
+import in.nit.model.Uom;
 
 
 
-public class UomTypeExcelView extends AbstractXlsView {
+public class UomExcelView extends AbstractXlsView {
 
 	@Override
 	protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, 
@@ -33,7 +33,7 @@ public class UomTypeExcelView extends AbstractXlsView {
 		//read Model data
 
 		@SuppressWarnings("unchecked")
-		List<UomType> list=(List<UomType>) model.get("list");
+		List<Uom> list=(List<Uom>) model.get("list");
 
 		setBody(s,list);
 
@@ -51,10 +51,10 @@ public class UomTypeExcelView extends AbstractXlsView {
 
 	}
 
-	private void setBody(Sheet s,List<UomType> list) {
+	private void setBody(Sheet s,List<Uom> list) {
 		int count=1;
 
-		for(UomType st:list) {
+		for(Uom st:list) {
 			Row r= s.createRow(count++);
 			r.createCell(0).setCellValue(st.getUomId().toString());
 			r.createCell(1).setCellValue(st.getUomType());

@@ -45,4 +45,9 @@ public class OrderMethodTypeDaoImpl implements IOrderMethodTypeDao {
 		return (List<Object[]>) ht.find(hql);
 
 	}
+	@Override
+	public List<Object[]> getOrderMethodIdAndCode(String mode) {
+		String hql=" SELECT orderId,orderCode FROM in.nit.model.OrderMethodType WHERE orderMode=?0";
+		return (List<Object[]>) ht.find(hql, mode);
+	}
 }

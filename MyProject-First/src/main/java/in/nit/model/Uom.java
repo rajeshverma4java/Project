@@ -11,7 +11,7 @@ import lombok.Data;
 @Entity
 @Table(name = "uomtab")
 
-public class UomType {
+public class Uom {
 	@Id
 	@GeneratedValue
 	@Column(name = "uomid")
@@ -27,12 +27,12 @@ public class UomType {
 	@Column(name="uomdesc")
 	private String uomDesc;
 
-	public UomType(Integer uomId) {
+	public Uom(Integer uomId) {
 		super();
 		this.uomId = uomId;
 	}
 
-	public UomType() {
+	public Uom() {
 		super();
 	}
 

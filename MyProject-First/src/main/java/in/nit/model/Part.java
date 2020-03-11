@@ -39,11 +39,18 @@ public class Part {
 	
 	@ManyToOne
 	@JoinColumn(name = "uomidfk")
-	private UomType uom;
+	private Uom uom;
 	
 	@Column(name = "note")
 	private String desc;
 	
+	@ManyToOne
+	@JoinColumn(name = "omtSalefk")
+	private OrderMethodType omtSaleob;
+	
+	@ManyToOne
+	@JoinColumn(name = "omtPurchasefk")
+	private OrderMethodType omtPurchaseob;
 	
 	
 

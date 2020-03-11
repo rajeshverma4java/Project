@@ -7,23 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import in.nit.dao.IUomTypeDao;
-import in.nit.model.UomType;
-import in.nit.service.IUomTypeService;
+import in.nit.dao.IUomDao;
+import in.nit.model.Uom;
+import in.nit.service.IUomService;
 
 @Service
-public class UomTypeServiceImpl implements IUomTypeService {
+public class UomServiceImpl implements IUomService {
 	@Autowired
-	private IUomTypeDao dao;
+	private IUomDao dao;
 	@Override
 	@Transactional
-	public Integer saveUomType(UomType ut) {
-		return dao.saveUomType(ut);
+	public Integer saveUom(Uom ut) {
+		return dao.saveUom(ut);
 	}
 	@Override
 	@Transactional(readOnly = false)
-	public List<UomType> getAllUomType() {
-		List<UomType> list=dao.getAllUomType();
+	public List<Uom> getAllUom() {
+		List<Uom> list=dao.getAllUom();
 		Collections.sort(list,(o1,o2)->o1.getUomId()-o1.getUomId());
 		
 	
@@ -31,24 +31,24 @@ public class UomTypeServiceImpl implements IUomTypeService {
 	}
 	@Override
 	@Transactional
-	public void deleteUomType(Integer id) {
-		dao.deleteUomType(id);
+	public void deleteUom(Integer id) {
+		dao.deleteUom(id);
 		
 	}
 	@Override
 	@Transactional(readOnly = true)
-	public UomType getOneUomType(Integer id) {
-		return dao.getOneUomType(id);
+	public Uom getOneUom(Integer id) {
+		return dao.getOneUom(id);
 	}
 	@Override
 	@Transactional
-	public void updateUomType(UomType ut) {
-			dao.updateUomType(ut);
+	public void updateUom(Uom ut) {
+			dao.updateUom(ut);
 	}
 	@Override
-	public List<Object[]> getUomTypePackingCount() {
+	public List<Object[]> getUomPackingCount() {
 		// TODO Auto-generated method stub
-		return dao.getUomTypePackingCount();
+		return dao.getUomPackingCount();
 	}
 	@Override
 	public List<Object[]> getUomIdAndModel() {

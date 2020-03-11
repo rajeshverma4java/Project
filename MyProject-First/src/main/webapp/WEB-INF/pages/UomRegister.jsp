@@ -12,7 +12,7 @@
 
 <h1>Welcome To UOM Register</h1>
 
-<form:form action="save" method="post" modelAttribute="uomType">
+<form:form action="save" method="post" modelAttribute="uom">
 <pre>
 UOM TYPE	:<form:select path="uomType">
 <form:option value="">---Select---</form:option>

@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import in.nit.model.Part;
-import in.nit.model.UomType;
+import in.nit.model.Uom;
+import in.nit.service.IOrderMethodTypeService;
 import in.nit.service.IPartService;
-import in.nit.service.IUomTypeService;
+import in.nit.service.IUomService;
 import in.nit.util.CommonConverter;
 @Controller
 @RequestMapping("/part")
@@ -22,12 +23,15 @@ public class PartController {
 	@Autowired
 	private IPartService service;
 	@Autowired
-	private IUomTypeService uomService;
-	
+	private IUomService uomService;
+	@Autowired
+	private IOrderMethodTypeService omtService;
 	
 	private void CommonUiUom(Model model) {
-		List<UomType> uomlist=uomService.getAllUomType();
+		List<Uom> uomlist=uomService.getAllUom();
 		model.addAttribute("uomlist", uomlist);
+		
+		
 	}
 	
 	private void CommonUi(Model model) {
@@ -37,6 +41,15 @@ public class PartController {
 	System.out.println("commnui execute");
 	Map<Integer,String> uomMap=CommonConverter.convert(list);
 	model.addAttribute("uomMap", uomMap);
+	
+	List<Object[]> list1=omtService.getOrderMethodIdAndCode("sale");
+	Map<Integer,String> omtSalemap=CommonConverter.convert(list1);
+	model.addAttribute("omtSalemap", omtSalemap);
+
+	
+	List<Object[]> list2=omtService.getOrderMethodIdAndCode("purchase");
+	Map<Integer,String> omtPurchasemap=CommonConverter.convert(list2);
+	model.addAttribute("omtPurchasemap",omtPurchasemap);
 	}
 	
 	
@@ -95,7 +108,7 @@ public class PartController {
 
 		Part pt=service.OnePart(id);
 		model.addAttribute("part",pt);
-		CommonUiUom(model);
+		CommonUi(model);
 
 		return "PartEdit";
 

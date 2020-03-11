@@ -12,7 +12,7 @@ import org.jfree.data.general.DefaultPieDataset;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UomTypeUtil {
+public class UomUtil {
 	
 	public void generatePie(String path,List<Object[]> data) {
 		//1.create data set

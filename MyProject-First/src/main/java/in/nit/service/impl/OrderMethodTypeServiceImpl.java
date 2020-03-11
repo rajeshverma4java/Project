@@ -49,4 +49,9 @@ public class OrderMethodTypeServiceImpl implements IOrderMethodTypeService {
 		// TODO Auto-generated method stub
 		return dao.getOrderMethodTypeMethodCount();
 	}
+	@Override
+	@Transactional(readOnly = true)
+	public List<Object[]> getOrderMethodIdAndCode(String mode) {
+		return dao.getOrderMethodIdAndCode(mode);
+	}
 }

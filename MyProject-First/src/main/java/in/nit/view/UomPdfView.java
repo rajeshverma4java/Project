@@ -14,21 +14,21 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 
-import in.nit.model.UomType;
+import in.nit.model.Uom;
 
 
-public class UomTypePdfView  extends AbstractPdfView{
+public class UomPdfView  extends AbstractPdfView{
 	@Override
 	protected void buildPdfDocument(Map<String, Object> model, Document document, PdfWriter writer,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		response.addHeader("Content-Disposition","attachment;filename=UomType.pdf");
 
-		Paragraph paragraph=new Paragraph("Welcome To Uom Type Data");
+		Paragraph paragraph=new Paragraph("Welcome To UOM  Data");
 		document.add(paragraph);
 
 		@SuppressWarnings("unchecked")
-		List<UomType> list= (List<UomType>) model.get("list");
+		List<Uom> list= (List<Uom>) model.get("list");
 
 		//creating Table
 
@@ -39,7 +39,7 @@ public class UomTypePdfView  extends AbstractPdfView{
 		p.addCell("NOTE");
 		
 
-		for(UomType st:list) {
+		for(Uom st:list) {
 			p.addCell(st.getUomId().toString());
 			p.addCell(st.getUomType());
 			p.addCell(st.getUomModel());

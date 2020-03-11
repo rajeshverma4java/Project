@@ -14,32 +14,32 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import in.nit.model.UomType;
-import in.nit.service.IUomTypeService;
-import in.nit.util.UomTypeUtil;
-import in.nit.view.UomTypeExcelView;
-import in.nit.view.UomTypePdfView;
+import in.nit.model.Uom;
+import in.nit.service.IUomService;
+import in.nit.util.UomUtil;
+import in.nit.view.UomExcelView;
+import in.nit.view.UomPdfView;
 
 @Controller
 @RequestMapping({"/uom"})
-public class UomTypeController {
+public class UomController {
 	@Autowired
-	private IUomTypeService service;
+	private IUomService service;
 	@Autowired
 	private ServletContext context;
 	@Autowired
-	private UomTypeUtil util;
-	@RequestMapping("/home")
+	private UomUtil util;
+	@RequestMapping("/show")
 	public String uomHome(Model model) {
 
-		model.addAttribute("uomType", new UomType());
+		model.addAttribute("uom", new Uom());
 		return "UomRegister";
 	}
 
 	@RequestMapping(value="/save", method = RequestMethod.POST)
-	public String saveUomType(@ModelAttribute UomType uomType,
+	public String saveUomType(@ModelAttribute Uom uom,
 			Model model) {
-		int id=	service.saveUomType(uomType);
+		int id=	service.saveUom(uom);
 		StringBuffer msg =new StringBuffer("Data save successfully").append("	The Genereted is=:").append(id);
 		model.addAttribute("message", msg);
 
@@ -49,7 +49,7 @@ public class UomTypeController {
 	@RequestMapping("/all")
 	public String getAllUomType(Model model) {
 
-		List<UomType> list=service.getAllUomType();
+		List<Uom> list=service.getAllUom();
 		model.addAttribute("data",list);
 
 		return "UomTypeData";
@@ -58,10 +58,10 @@ public class UomTypeController {
 	@RequestMapping("/delete")
 	public String deleteUomType(@RequestParam ("uid") Integer id,
 			Model model) {
-		service.deleteUomType(id);
+		service.deleteUom(id);
 		String msg= +id+" No record deleted";
 		model.addAttribute("message",msg);
-		List<UomType> list=service.getAllUomType();
+		List<Uom> list=service.getAllUom();
 		model.addAttribute("data",list);
 
 		return "UomTypeData";
@@ -73,17 +73,17 @@ public class UomTypeController {
 
 	@RequestMapping("/edit")
 	public String editUomType(@RequestParam ("uid")Integer uid,Model model) {
-		UomType UomType=service.getOneUomType(uid);
-		model.addAttribute("uomType",UomType);
+		Uom Uom=service.getOneUom(uid);
+		model.addAttribute("uom",Uom);
 		return "UomTypeEdit";
 	}
 
 	@RequestMapping(value = "/update",method = RequestMethod.POST)
-	public String updateUomType(@ModelAttribute UomType uomType, Model model) {
-		service.updateUomType(uomType);
+	public String updateUomType(@ModelAttribute Uom uom, Model model) {
+		service.updateUom(uom);
 
 		String message="Record Updated Suucesfully";
-		List<UomType> list=service.getAllUomType();
+		List<Uom> list=service.getAllUom();
 		model.addAttribute("message",message);
 		model.addAttribute("data",list);
 
@@ -92,9 +92,9 @@ public class UomTypeController {
 	@RequestMapping("/view")
 	public String showUomType(@RequestParam ("uid") Integer uid,Model model) {
 
-		UomType UomType= service.getOneUomType(uid);
+		Uom Uom= service.getOneUom(uid);
 
-		model.addAttribute("uomType",UomType);
+		model.addAttribute("uom",Uom);
 		return "UomTypeView";
 
 	}
@@ -102,17 +102,17 @@ public class UomTypeController {
 	@RequestMapping("/excel")
 	public ModelAndView showExcel(@RequestParam (value = "uid",required = false) Integer id) {
 		ModelAndView mav=new ModelAndView();
-		mav.setView(new UomTypeExcelView());
+		mav.setView(new UomExcelView());
 		if(id==null) {
 
 			//fetching data from db
 
-			List<UomType> list=service.getAllUomType();
+			List<Uom> list=service.getAllUom();
 			mav.addObject("list", list);
 		}
 		else {
 
-			UomType wt =service.getOneUomType(id);
+			Uom wt =service.getOneUom(id);
 			mav.addObject("list", Arrays.asList(wt));
 		}
 		return mav;
@@ -121,15 +121,15 @@ public class UomTypeController {
 	public  ModelAndView showPdf(@RequestParam(name = "uid",required = false)Integer id) {
 
 		ModelAndView mav=new ModelAndView();
-		mav.setView(new UomTypePdfView());
+		mav.setView(new UomPdfView());
 		if(id==null) {
 
 
-			List<UomType> list=service.getAllUomType();
+			List<Uom> list=service.getAllUom();
 			mav.addObject("list", list);
 		}
 		else {
-			UomType wt=service.getOneUomType(id);
+			Uom wt=service.getOneUom(id);
 			mav.addObject("list", Arrays.asList(wt));
 		}
 
@@ -137,7 +137,7 @@ public class UomTypeController {
 	}
 	@RequestMapping("/charts")
 	public String showCharts() {
-		List<Object[]> list=service.getUomTypePackingCount();
+		List<Object[]> list=service.getUomPackingCount();
 		String path=context.getRealPath("/");
 		util.generatePie(path, list);
 		util.generateBarChart(path, list);

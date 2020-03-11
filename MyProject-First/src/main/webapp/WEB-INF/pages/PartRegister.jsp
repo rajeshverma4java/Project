@@ -81,6 +81,7 @@
 						<div class="col-4"></div>
 					</div>
 					
+					
 					<div class="row">
 						<div class="col-4">UOM</div>
 						<div class="col-4>">
@@ -92,7 +93,29 @@
 						</div>
 						<div class="col-4"></div>
 					</div>
+
+					<div class="row">
+						<div class="col-4">Order Method</div>
+						<div class="col-4>">
+						<form:select path="">
+						<form:option value="">--SELECT FROM SALE--</form:option>
+						<form:options items="${omtSalemap}" />
+						</form:select>			
+						</div>
+						<div class="col-4"></div>
+					</div>
 					
+					
+					<div class="row">
+						<div class="col-4"></div>
+						<div class="col-4>">
+						<form:select path="">
+						<form:option value="">--SELECT FROM PURCHASE--</form:option>
+						<form:options items="${omtPurchasemap}" />
+						</form:select>			
+						</div>
+						<div class="col-4"></div>
+					</div>
 
 					<div class="row">
 						<div class="col-4">Description</div>

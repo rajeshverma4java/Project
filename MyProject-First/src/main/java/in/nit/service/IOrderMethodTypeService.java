@@ -11,6 +11,7 @@ public interface IOrderMethodTypeService {
 	public OrderMethodType viewOrderMethodType(Integer id);
 	public void updateOrderMethodType(OrderMethodType omt);
 	 public List<Object[]> getOrderMethodTypeMethodCount();
+	 public List<Object[]> getOrderMethodIdAndCode(String mode);
 
 
 }

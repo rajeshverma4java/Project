@@ -16,6 +16,6 @@ public class HomeController {
 	@RequestMapping("/*")
 	public String showUploadPage() {
 
-		return "PartRegister";
+		return "UserMenu";
 	}
 }

@@ -6,47 +6,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
-import in.nit.dao.IUomTypeDao;
-import in.nit.model.UomType;
+import in.nit.dao.IUomDao;
+import in.nit.model.Uom;
 
 @Repository
-public class UomTypeDaoImpl implements IUomTypeDao {
+public class UomDaoImpl implements IUomDao {
 	@Autowired
 	private HibernateTemplate ht;
 	@Override
-	public Integer saveUomType(UomType ut) {
+	public Integer saveUom(Uom ut) {
 
 		return (Integer)ht.save(ut);
 	}
 	@Override
-	public List<UomType> getAllUomType() {
-		return ht.loadAll(UomType.class);
+	public List<Uom> getAllUom() {
+		return ht.loadAll(Uom.class);
 	}
 	@Override
-	public void deleteUomType(Integer id) {
-		UomType ut=new UomType(id);
+	public void deleteUom(Integer id) {
+		Uom ut=new Uom(id);
 		ht.delete(ut);
 	}
 	@Override
-	public UomType getOneUomType(Integer id) {
-		return ht.get(UomType.class, id);
+	public Uom getOneUom(Integer id) {
+		return ht.get(Uom.class, id);
 	}
 	@Override
-	public void updateUomType(UomType ut) {
+	public void updateUom(Uom ut) {
 		ht.update(ut);
 		
 	}
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	@Override
-	public List<Object[]> getUomTypePackingCount() {
-		String hql="SELECT uomType,COUNT(uomType) FROM in.nit.model.UomType group by uomType";
+	public List<Object[]> getUomPackingCount() {
+		String hql="SELECT uomType,COUNT(uomType) FROM in.nit.model.Uom group by uom";
 		
 		return (List<Object[]>) ht.find(hql);
 	}
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	@Override
 	public List<Object[]> getUomIdAndModel() {
-		String hql=" SELECT uomId, uomModel from in.nit.model.UomType";
+		String hql=" SELECT uomId, uomModel from in.nit.model.Uom";
 		List<Object[]> list=null;
 		
 		list=(List<Object[]>) ht.find(hql);

@@ -14,7 +14,7 @@
 
 		<div class="card">
 			<div class="card-header  text-center text-black text-uppercase">
-				<h2>Welcome to Part Register</h2>
+				<h2>Welcome to Part Edit Register</h2>
 			</div>
 
 			<div class="card-body">
@@ -91,16 +91,42 @@
 						<div class="col-4"></div>
 					</div>
 					
-					<div class="row">
+										<div class="row">
 						<div class="col-4">UOM</div>
 						<div class="col-4>">
 						<form:select path="uom.uomId">
 						<form:option value="">--SELECT--</form:option>
-						<form:options items="${uomlist}" itemValue="uomId" itemLabel="uomModel"/>
+						<%-- <form:options items="${uomList}" itemValue="uomId" itemLabel="uomModel"/> --%>
+						<form:options items="${uomMap}" />
 						</form:select>			
 						</div>
 						<div class="col-4"></div>
 					</div>
+
+					
+					<div class="row">
+						<div class="col-4">Order Method</div>
+						<div class="col-4>">
+						<form:select path="">
+						<form:option value="">--SELECT FROM SALE--</form:option>
+						<form:options items="${omtSalemap}" />
+						</form:select>			
+						</div>
+						<div class="col-4"></div>
+					</div>
+					
+					
+					<div class="row">
+						<div class="col-4"></div>
+						<div class="col-4>">
+						<form:select path="">
+						<form:option value="">--SELECT FROM PURCHASE--</form:option>
+						<form:options items="${omtPurchasemap}" />
+						</form:select>			
+						</div>
+						<div class="col-4"></div>
+					</div>
+					
 					
 
 					<div class="row">

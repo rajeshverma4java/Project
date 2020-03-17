@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import in.nit.dao.IShipmentTypeDao;
 import in.nit.model.ShipmentType;
 import in.nit.service.IShipmentTypeService;
+import oracle.net.aso.r;
 @Service
 public class ShipmentTypeServiceImpl implements IShipmentTypeService {
 	@Autowired
@@ -44,7 +45,13 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
 		
 	}
 	@Override
+	@Transactional(readOnly = true)
 	public List<Object[]> getShipmentModeCount() {
 		return dao.getShipmentModeCount();
+	}
+	@Override
+	@Transactional(readOnly = true)
+	public List<Object[]> getShipmentIdAndCode() {
+		return dao.getShipmentIdAndCode();
 	}
 }

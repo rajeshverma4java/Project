@@ -26,22 +26,27 @@ public class WhuserTypeDaoImpl implements IWhuserTypeDao {
 	public WhuserType getOneWhuser(Integer id) {
 		return ht.get(WhuserType.class, id);
 	}
-@Override
+	@Override
 	public void deleteWhuserType(Integer id) {
-	
-	WhuserType wh=new WhuserType();
-	wh.setWhuId(id);
-			ht.delete(wh);
+
+		WhuserType wh=new WhuserType();
+		wh.setWhuId(id);
+		ht.delete(wh);
 	}
 
 	public void updateWhuserType(WhuserType wh) {
 		ht.update(wh);
 	}
-@SuppressWarnings({ "deprecation", "unchecked" })
-@Override
-public List<Object[]> getWhuserTypeUseForCount() {
-String hql="SELECT whusefor, count(whusefor) from in.nit.model.WhuserType group by whusefor";
+	@SuppressWarnings({ "deprecation", "unchecked" })
+	@Override
+	public List<Object[]> getWhuserTypeUseForCount() {
+		String hql="SELECT whusefor, count(whusefor) from in.nit.model.WhuserType group by whusefor";
 
-	return (List<Object[]>) ht.find(hql);
-}
+		return (List<Object[]>) ht.find(hql);
+	}
+	@Override
+	public List<Object[]> getWhuserIdAndCode(String userType) {
+		String hql=" SELECT whuId,whuCode FROM  "+WhuserType.class.getName()+"  WHERE whuserTyp=?0";
+		return (List<Object[]>)ht.find(hql, userType);
+	}
 }

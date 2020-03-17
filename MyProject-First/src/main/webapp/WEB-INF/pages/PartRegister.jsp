@@ -97,7 +97,7 @@
 					<div class="row">
 						<div class="col-4">Order Method</div>
 						<div class="col-4>">
-						<form:select path="">
+						<form:select path="omtSaleOb.orderId">
 						<form:option value="">--SELECT FROM SALE--</form:option>
 						<form:options items="${omtSalemap}" />
 						</form:select>			
@@ -109,7 +109,7 @@
 					<div class="row">
 						<div class="col-4"></div>
 						<div class="col-4>">
-						<form:select path="">
+						<form:select path="omtPurOb.orderId">
 						<form:option value="">--SELECT FROM PURCHASE--</form:option>
 						<form:options items="${omtPurchasemap}" />
 						</form:select>			

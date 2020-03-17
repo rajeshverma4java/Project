@@ -45,6 +45,8 @@
 									<th>COST</th>
 									<th>CURRENCY</th>
 									<th>UOM</th>
+									<th>ORDER SALE</th>	
+									<th>ORDER PURCHASE</th>	
 									<th>NOTE</th>
 									
 									<th class="text-center" colspan="3">OPTION</th>
@@ -63,6 +65,8 @@
 									<td>${ob.baseCost}</td>
 									<td>${ob.baseCurrency}</td>
 									<td>${ob.uom.uomModel}</td>
+									<td>${ob.getOmtSaleOb().getOrderCode()}</td>
+									<td>${ob.getOmtPurOb().getOrderCode()}</td>
 									<td>${ob.desc}</td>
 									<td><a href="delete?pid=${ob.partId }"
 										class="btn btn-danger">DELETE</a>

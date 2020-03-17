@@ -46,8 +46,14 @@ public class WhuserTypeServiceImpl implements IWhuserTypeService {
 	}
 
 @Override
+@Transactional(readOnly = true)
 	public List<Object[]> getWhuserTypeUseForCount() {
 		// TODO Auto-generated method stub
 		return dao.getWhuserTypeUseForCount();
 	}	
+	@Override
+	@Transactional(readOnly = true)
+	public List<Object[]> getWhuserIdAndCode(String userType) {
+		return dao.getWhuserIdAndCode(userType);
+	}
 }

@@ -34,7 +34,6 @@ public class PartDaoImpl implements IPartDao {
 
 	@Override
 	public Part OnePart(Integer id) {
-		
 		return ht.get(Part.class, id);
 	}
 

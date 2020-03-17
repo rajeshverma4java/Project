@@ -1,5 +1,6 @@
 package in.nit.controller;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -10,13 +11,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import in.nit.model.Part;
-import in.nit.model.Uom;
 import in.nit.service.IOrderMethodTypeService;
 import in.nit.service.IPartService;
 import in.nit.service.IUomService;
 import in.nit.util.CommonConverter;
+import in.nit.view.PartExcelView;
+import in.nit.view.PartPdfView;
 @Controller
 @RequestMapping("/part")
 public class PartController {
@@ -27,13 +30,14 @@ public class PartController {
 	@Autowired
 	private IOrderMethodTypeService omtService;
 	
-	private void CommonUiUom(Model model) {
-		List<Uom> uomlist=uomService.getAllUom();
-		model.addAttribute("uomlist", uomlist);
-		
-		
-	}
-	
+	/*
+	 * private void CommonUiUom(Model model) { 
+	 * List<Uom>
+	 * uomlist=uomService.getAllUom();
+	 * model.addAttribute("uomlist", uomlist);
+	 * }
+	 */
+
 	private void CommonUi(Model model) {
 	List<Object[]> list=uomService.getUomIdAndModel();
 	
@@ -127,31 +131,44 @@ public class PartController {
 	}
 
 
+	
+	  @RequestMapping(value = "/excel") 
+	  public ModelAndView excelView(@RequestParam
+			  				(value = "pid",required = false)Integer id) {
+		  ModelAndView mav= new ModelAndView(); 
+		  mav.setView(new PartExcelView());
+	  
+		  if(id!=null) {
+	  
+	  mav.addObject("list",Arrays.asList(service.OnePart(id)));
+
+	  } else
+		  mav.addObject("list", service.getAllPart());
+	  
+	  return mav; 
+	  }
+	  
+	  @RequestMapping(value = "/pdf") 
+	  public ModelAndView excelExport(@RequestParam
+			  			(value = "pid",required = false)Integer id) { 
+		  ModelAndView mav= new ModelAndView(); 
+		  mav.setView(new PartPdfView());
+	  if(id!=null) {
+	  
+	  mav.addObject("list",Arrays.asList(service.OnePart(id)));
+	  
+	  } else {
+
+		  List<Part> list=service.getAllPart();
+		  System.out.println(list);
+		  
+		  mav.addObject("list", service.getAllPart());
+	  }
+	  
+	  return mav;
+	  }
+	  
 	/*
-	 * @RequestMapping(value = "/excel") public ModelAndView excelView(@RequestParam
-	 * (value = "pid",required = false)Integer id) { ModelAndView mav= new
-	 * ModelAndView(); mav.setView(new OrderTypeExcelView());
-	 * 
-	 * if(id!=null) {
-	 * 
-	 * mav.addObject("list",Arrays.asList(service.viewOrderMethodType(id)));
-	 * 
-	 * } else mav.addObject("list", service.getAllOrderMethodType());
-	 * 
-	 * return mav; }
-	 * 
-	 * @RequestMapping(value = "/pdf") public ModelAndView excelExport(@RequestParam
-	 * (value = "oid",required = false)Integer id) { ModelAndView mav= new
-	 * ModelAndView(); mav.setView(new OrderTypePdfView());
-	 * 
-	 * if(id!=null) {
-	 * 
-	 * mav.addObject("list",Arrays.asList(service.viewOrderMethodType(id)));
-	 * 
-	 * } else mav.addObject("list", service.getAllOrderMethodType());
-	 * 
-	 * return mav; }
-	 * 
 	 * @RequestMapping("/charts") public String showCharts() { List<Object[]>
 	 * list=service.getOrderMethodTypeMethodCount(); String
 	 * path=context.getRealPath("/"); util.generatePie(path, list);
@@ -159,4 +176,4 @@ public class PartController {
 	 * 
 	 * return "OrderMethodCharts"; }
 	 * 
-	 */}
+	 */	 }

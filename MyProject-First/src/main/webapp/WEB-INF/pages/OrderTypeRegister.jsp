@@ -30,7 +30,7 @@
 							<form:radiobutton path="orderMode" value="purchase" />
 							Purchase
 						</div>
-						<div class=""></div>
+						<div class="col-4"></div>
 					</div>
 
 					<div class="row">
@@ -86,7 +86,7 @@
 				</form:form>
 			</div>
 			<div class="card-footer">
-				${message} <a href="all">All Record</a><br>
+				${message}
 			</div>
 		</div>
 		<!-- card close -->

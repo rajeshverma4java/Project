@@ -14,14 +14,8 @@
 }
 </style>
 
-
-
-
-
-
-
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>UOM DATA</title>
 </head>
 <body>
 	<%@include file="UserMenu.jsp"%>
@@ -76,8 +70,9 @@
 
 				</c:choose>
 			</div>
-
-			${message}<br> 
+			<div class="card-footer bg-primary text-white text-center">
+			${message}<br>
+			</div> 
 		</div>
 		<!-- close card-->
 	</div>

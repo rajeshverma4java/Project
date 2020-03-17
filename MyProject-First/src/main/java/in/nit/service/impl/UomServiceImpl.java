@@ -46,11 +46,13 @@ public class UomServiceImpl implements IUomService {
 			dao.updateUom(ut);
 	}
 	@Override
+	@Transactional(readOnly = true)
 	public List<Object[]> getUomPackingCount() {
 		// TODO Auto-generated method stub
 		return dao.getUomPackingCount();
 	}
 	@Override
+	@Transactional(readOnly = true)
 	public List<Object[]> getUomIdAndModel() {
 
 		return dao.getUomIdAndModel();

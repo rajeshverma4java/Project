@@ -110,7 +110,19 @@
         </div>
       </li>
       
-      
+  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PURCHASE ORDER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="${url}/po/show">REGISTER</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="${url}/po/all">ALL</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="${url}/whuser/po">CHARTS</a>
+
+        </div>
+      </li>    
       
    
     </ul>

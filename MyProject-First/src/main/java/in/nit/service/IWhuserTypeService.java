@@ -11,6 +11,6 @@ public interface IWhuserTypeService {
 	public void deleteWhuserType(Integer Id);
 	public void updateWhuserType(WhuserType wh);
 	public List<Object[]> getWhuserTypeUseForCount();
-
+	public List<Object[]> getWhuserIdAndCode(String userType);
 
 }

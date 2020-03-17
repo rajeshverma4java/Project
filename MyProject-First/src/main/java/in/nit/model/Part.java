@@ -13,7 +13,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import lombok.experimental.NonFinal;
 
 @Entity
 @Data
@@ -30,9 +29,9 @@ public class Part {
 
 	private String code ;	
 	
-	private double width;
-	private double length;
-	private double height;
+	private Double width;
+	private Double length;
+	private Double height;
 	
 	private Double baseCost;
 	private String baseCurrency;
@@ -43,14 +42,14 @@ public class Part {
 	
 	@Column(name = "note")
 	private String desc;
+	@ManyToOne
+	@JoinColumn(name = "omtSaleFk")
+	private OrderMethodType omtSaleOb;
 	
 	@ManyToOne
-	@JoinColumn(name = "omtSalefk")
-	private OrderMethodType omtSaleob;
+	@JoinColumn(name = "omtPurFk")
+	private OrderMethodType omtPurOb;
 	
-	@ManyToOne
-	@JoinColumn(name = "omtPurchasefk")
-	private OrderMethodType omtPurchaseob;
 	
 	
 

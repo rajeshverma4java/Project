@@ -41,10 +41,12 @@ public class OrderMethodTypeServiceImpl implements IOrderMethodTypeService {
 		return dao.viewOrderMethodType(id);
 	}
 	@Override
+	@Transactional
 	public void updateOrderMethodType(OrderMethodType omt) {
 			dao.updateOrderMethodType(omt);
 	}
 	@Override
+	@Transactional(readOnly = true)
 	public List<Object[]> getOrderMethodTypeMethodCount() {
 		// TODO Auto-generated method stub
 		return dao.getOrderMethodTypeMethodCount();

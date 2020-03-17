@@ -1,40 +1,83 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+	pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Edit Uom</title>
 </head>
 <body>
-<%@include file="UserMenu.jsp" %>
+	<%@include file="UserMenu.jsp"%>
+	<div class="container">
+		<div class="card ">
+			<div class="card-header text-center text-black text-uppercase">
 
-<h1>Welcome To UOM Register</h1>
+				<h1>Welcome To UOM Register</h1>
+			</div>
+			<div class="card-body">
 
-<form:form action="update" method="post" modelAttribute="uom">
-<pre>
-UOM ID		:<form:input path="uomId" readonly="true"/>
+				<form:form action="update" method="post" modelAttribute="uom">
+					<div class="row">
+						<div class="col-4">UOM ID</div>
+						<div class="col-4"><form:input path="uomId" readonly="true" />
+						</div>
+						<div class="col-4"></div>
+						</div>
 
-UOM TYPE	:<form:select path="uomType">
-<form:option value="">---Select---</form:option>
-<form:option value="PACKING">PACKING</form:option>
-<form:option value="NO PACKING">NO PACKING</form:option>
-<form:option value="---NA---">---NA---</form:option>
+						<div class="row">
+							<div class="col-4">UOM TYPE</div>
+							<div class="col-4">
+								<form:select path="uomType">
+									<form:option value="">---Select---</form:option>
+									<form:option value="PACKING">PACKING</form:option>
+									<form:option value="NO PACKING">NO PACKING</form:option>
+									<form:option value="---NA---">---NA---</form:option>
 
-</form:select>	
+								</form:select>
+							</div>
+							<div class="col-4"></div>
+						</div>
 
-UOM MODEL	:<form:input path="uomModel"/>
 
-DESCRIPTION	:<form:textarea path="uomDesc"/>	
+						<div class="row">
+							<div class="col-4">UOM MODEL</div>
+							<div class="col-4">
+								<form:input path="uomModel" />
+							</div>
+							<div class="col-4"></div>
+						</div>
 
-			<input type="submit" value="Update Uom"> 
-</pre>
 
-</form:form>
+						<div class="row">
+							<div class="col-4">DESCRIPTION</div>
+							<div class="col-4">
+								<form:textarea path="uomDesc" />
+							</div>
+							<div class="col-4"></div>
+						</div>
 
-${message}<br>
 
-<a href="all">All Data</a>
+						<div class="row">
+							<div class="col-4"></div>
+							<div class="col-4">
+								<input type="submit" value="Update Uom"> 
+							</div>
+							<div class="col-4"></div>
+						</div>
+				</form:form>
+			</div>
+			<!-- close card body -->
+			<div class="card-footer text-center text-black text-uppercase">
+
+				${message}<br>
+
+			</div>
+			<!-- close card-footer -->
+		</div>
+		<!-- Close Card -->
+	</div>
+	<!-- Close Container -->
+
 </body>
 </html>

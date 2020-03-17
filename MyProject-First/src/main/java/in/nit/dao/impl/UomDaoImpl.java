@@ -39,7 +39,7 @@ public class UomDaoImpl implements IUomDao {
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	@Override
 	public List<Object[]> getUomPackingCount() {
-		String hql="SELECT uomType,COUNT(uomType) FROM in.nit.model.Uom group by uom";
+		String hql="SELECT uomType,COUNT(uomType) FROM in.nit.model.Uom group by uomType";
 		
 		return (List<Object[]>) ht.find(hql);
 	}

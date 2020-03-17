@@ -36,14 +36,14 @@
 						<table class="table table-hover " border="1">
 							<tr class="bg-success text-white">
 							<tr>
-									<th>ID</th>
-									<th>MODE</th>
+								<th>ID</th>
+								<th>MODE</th>
 
-									<th>CODE</th>
-									<th>METHOD</th>
-									<th>ACCEPT</th>
-									<th>DESCRIPTION</th>
-									<th class="text-center" colspan="3">OPTION</th>
+								<th>CODE</th>
+								<th>METHOD</th>
+								<th>ACCEPT</th>
+								<th>DESCRIPTION</th>
+								<th class="text-center" colspan="3">OPTION</th>
 
 							</tr>
 
@@ -73,6 +73,15 @@
 
 				</c:choose>
 			</div>
+
+
+			<div class="card-footer bg-info text-white 
+text-center">
+				<b>${message }</b>
+			</div>
+
+
+
 			<%-- <c:if test="${!empty message }">
 				<c:choose>
 					<c:when test="${opr eq 'DEL'}">

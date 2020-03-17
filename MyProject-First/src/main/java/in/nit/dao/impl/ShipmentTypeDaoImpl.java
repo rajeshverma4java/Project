@@ -41,4 +41,10 @@ public class ShipmentTypeDaoImpl implements IShipmentTypeDao {
 		String hql="SELECT shipMod, count(shipMod) from in.nit.model.ShipmentType group by shipMod";
 		return (List<Object[]>) ht.find(hql);
 	}
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public List<Object[]> getShipmentIdAndCode() {
+		String hql=" SELECT shipId,shipCode FROM  "+ShipmentType.class.getName();
+		return (List<Object[]>)ht.find(hql);
+	}
 }
